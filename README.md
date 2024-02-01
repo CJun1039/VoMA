@@ -1,4 +1,4 @@
 # HACK FOR GOOD
 
-## Schema for the database
+## ER Diagram
 ![Er Diagram](/docs/images/er_diagram.jpeg)
