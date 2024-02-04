@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function RegistrationContainer() {
   return (
     <div className="flex h-screen absolute top-0 items-center left-0 right-0">
@@ -118,12 +120,12 @@ export default function RegistrationContainer() {
 
           <p className="mt-10 mb-5 text-center text-sm text-gray-500">
             Already part of the community?{" "}
-            <a
-              href="#"
+            <Link
               className="font-semibold leading-6 text-orange-red/80 hover:text-orange-red/90"
+              to="/login"
             >
               Sign in here
-            </a>
+            </Link>
           </p>
         </div>
       </div>

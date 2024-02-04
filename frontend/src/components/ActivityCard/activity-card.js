@@ -1,6 +1,10 @@
-export default function ActivityCard() {
+export default function ActivityCard({ colour }) {
+  const colourVariants = {
+    white: 'bg-white',
+    pink: 'bg-[#FFF0F0]'
+  }
   return (
-    <div className="max-w-xs rounded overflow-hidden shadow-xl hover:shadow-2xl rounded-3xl mr-40">
+    <div className={`w-64 min-w-64 rounded ${colourVariants[colour]} overflow-hidden shadow-xl hover:shadow-2xl rounded-3xl mr-20`}>
       <img
         className="w-full"
         src="/sample.jpeg"
