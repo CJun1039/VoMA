@@ -1,15 +1,22 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+module.exports = {
+  content: [
+    './src/pages/**/*.{html,js}',
+    './src/components/**/*.{html,js}',
+    './App.js'
+  ],
   theme: {
     extend: {
       colors: {
-        darkgray: "#909590",
+        'orange-red': '#CC3401'
       },
-    },
-    fontFamily: {
-      sans: ["Inter", "sans-serif"],
+      backgroundImage: {
+        'background-vector': "url('/src/assets/background.jpg')"
+      }
     },
   },
-  plugins: [],
-};
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
+}
+
