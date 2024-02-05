@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Prisma Schema Definition
+
+model Volunteer {
+  id           Int      @id @default(autoincrement())
+  firstname    String   
+  lastname     String  
+  email        String   @unique
+  gender       String?
+  race         String?
+  dob          DateTime?
+  phone        String?  @unique
+  nationality  String?
+  address      String?
+  intrests     String?
+  skills       String?
+  preferedDays String?
+  frequency    String?
+  area         String?
+  language     String?
+  role         String?
+  NOKName      String?
+  NOKPhone     String?
+
+  sensitiveInformation SensitiveInformation?
+  participates         VolunteerParticipates[]
+}
+
+model SensitiveInformation {
+  volunteerId Int      @id
+  passwordhash String
+  isAdmin     Boolean
+
+  volunteer Volunteer @relation(fields: [volunteerId], references: [id])
+}
+
+model Events {
+  id                Int      @id @default(autoincrement())
+  name              String   
+  date              DateTime
+  time              DateTime
+  hours             String
+  cause             String
+  numberOfVolunteers Int
+  restrictions      String
+  location          String
+  description       String
+  type              String
+
+  participates   VolunteerParticipates[]
+  hostedBy       ExternalOrganizationsHostedBy[]
+}
+
+model VolunteerParticipates {
+  volunteerId Int       @map("volunteerId")
+  eventId     Int       @map("eventId")
+  isLeader    Boolean
+
+  volunteer Volunteer @relation(fields: [volunteerId], references: [id])
+  event     Events    @relation(fields: [eventId], references: [id])
+
+  @@id([volunteerId, eventId])
+}
+
+model ExternalOrganizations {
+  id     Int      @id @default(autoincrement())
+  name   String   
+  cause  String?
+  email  String
+  phone  String?
+
+  hostedEvents ExternalOrganizationsHostedBy[]
+}
+
+model ExternalOrganizationsHostedBy {
+  organizationId Int      @map("organizationId")
+  eventId        Int      @map("eventId")
+  type           String
+
+  organization ExternalOrganizations @relation(fields: [organizationId], references: [id])
+  event      Events               @relation(fields: [eventId], references: [id])
+
+  @@id([organizationId, eventId])
+}
