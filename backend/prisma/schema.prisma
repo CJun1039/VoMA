@@ -32,6 +32,7 @@ model Volunteer {
   role         String?
   NOKName      String?
   NOKPhone     String?
+  profilePic   String?
 
   sensitiveInformation SensitiveInformation?
   participates         VolunteerParticipates[]
@@ -48,15 +49,16 @@ model SensitiveInformation {
 model Events {
   id                Int      @id @default(autoincrement())
   name              String   
-  date              DateTime
-  time              DateTime
-  hours             String
-  cause             String
-  numberOfVolunteers Int
-  restrictions      String
-  location          String
-  description       String
-  type              String
+  date              DateTime?
+  time              DateTime?
+  hours             String?
+  cause             String?
+  numberOfVolunteers Int?
+  restrictions      String>
+  location          String?
+  description       String?
+  type              String?
+  image             String?
 
   participates   VolunteerParticipates[]
   hostedBy       ExternalOrganizationsHostedBy[]
