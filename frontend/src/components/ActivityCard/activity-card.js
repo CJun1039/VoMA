@@ -1,15 +1,13 @@
 export default function ActivityCard({ colour }) {
   const colourVariants = {
-    white: 'bg-white',
-    pink: 'bg-[#FFF0F0]'
-  }
+    white: "bg-white",
+    pink: "bg-[#FFF0F0]",
+  };
   return (
-    <div className={`w-64 min-w-64 rounded ${colourVariants[colour]} overflow-hidden shadow-xl hover:shadow-2xl rounded-3xl mr-20`}>
-      <img
-        className="w-full"
-        src="/sample.jpeg"
-        alt=""
-      />
+    <div
+      className={`w-64 min-w-64 rounded ${colourVariants[colour]} overflow-hidden shadow-l hover:shadow-xl rounded-3xl mr-20`}
+    >
+      <img className="w-full" src="/sample.jpeg" alt="" />
       <div className="px-6 py-4">
         <div className="font-bold text-l mb-2">
           Project ROSE - Sembawang - Volunteer Coordinator [YCDT-S]

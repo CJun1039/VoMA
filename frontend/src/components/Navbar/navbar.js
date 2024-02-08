@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { BellIcon } from "@heroicons/react/24/outline";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -9,7 +9,7 @@ function classNames(...classes) {
 export default function Example() {
   return (
     <nav className="bg-orange-red/80">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden"></div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -27,7 +27,6 @@ export default function Example() {
               <BellIcon className="h-6 w-6" aria-hidden="true" />
             </button>
 
-            {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
               <div>
                 <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm hover:outline-none hover:ring-1 hover:ring-white hover:ring-offset-2">
