@@ -1,6 +1,12 @@
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { post } from "../../../../backend/src/auth";
+
+
 
 export default function ParticularsForm() {
+
+
+
   return (
     <form className="mx-20">
       <div className="space-y-12">
@@ -8,7 +14,7 @@ export default function ParticularsForm() {
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-2">
               <label
-                htmlFor="first-name"
+                htmlFor="firstname"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 First name
@@ -16,8 +22,8 @@ export default function ParticularsForm() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="first-name"
-                  id="first-name"
+                  name="firstname"
+                  id="firstname"
                   placeholder="Joel"
                   readOnly
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
@@ -27,7 +33,7 @@ export default function ParticularsForm() {
 
             <div className="sm:col-span-4">
               <label
-                htmlFor="last-name"
+                htmlFor="lastname"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Last name
@@ -35,8 +41,8 @@ export default function ParticularsForm() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="last-name"
-                  id="last-name"
+                  name="lastname"
+                  id="lastname"
                   autoComplete="family-name"
                   placeholder="Wong"
                   readOnly

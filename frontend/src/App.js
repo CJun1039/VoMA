@@ -12,7 +12,11 @@ import Dashboard from "./components/Dashboard/dashboard";
 import ParticularsForm from "./components/ParticularsForm/particulars-form";
 import PreferencesForm from "./components/PreferencesForm/preferences-form";
 
+
+
 function App() {
+
+
   return (
     <BrowserRouter>
       <Routes>
