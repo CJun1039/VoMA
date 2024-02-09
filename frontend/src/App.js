@@ -3,6 +3,7 @@ import LoginContainer from "./components/Login/login-container";
 import RegistrationContainer from "./components/Registration/registration-container";
 import LoginPage from "./components/LoginPage/login-page";
 import SingleEventPage from "./components/SingleEventPage/SingleEventPage";
+import Profile from "./components/Profile/profile";
 import "./App.css";
 import RegistrationPage from "./components/RegistrationPage/registration-page";
 import ActivityCard from "./components/ActivityCard/activity-card";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/register" element={<RegistrationPage />}></Route>
         <Route path="/dashboard" element={<RecommendedActivities />} />
         <Route path="/event" element={<SingleEventPage />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );
