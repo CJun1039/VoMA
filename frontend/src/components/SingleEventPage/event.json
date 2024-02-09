@@ -1,0 +1,15 @@
+{
+  "product_description": "Join us as Volunteer Befrienders to distribute blood pressure machines and weighing scales to seniors through home visits! Get to know the seniors and support them in syncing these new equipment to an existing wellness tablet they own, which would aid in their future medical appointments.",
+  "volunteering_requirement": "Volunteers must be between 16 to 35 years old.",
+  "schedule": "Flexible schedule, 4 hours per day, Monday to Friday.",
+  "vacancies": {
+    "left": 5,
+    "total": 21
+  }, 
+  "location": "5 Beach Road St Andrew's Senior Care - Joy Connect Singapore 190005", 
+  "contact": {
+    "name": "John Doe",
+    "contact_number": "91234567",
+    "email": "john_doe@email.com"
+  }
+}
