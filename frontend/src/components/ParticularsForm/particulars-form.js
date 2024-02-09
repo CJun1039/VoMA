@@ -6,7 +6,7 @@ export default function ParticularsForm(props) {
   return (
     <form>
       <div className="space-y-12">
-        <div className="pb-4">
+        <div className>
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-2">
               <label
@@ -252,6 +252,14 @@ export default function ParticularsForm(props) {
                   className="block w-1/3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-red/80 sm:text-sm sm:leading-6"
                 />
               </div>
+            </div>
+            <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+              <button
+                type="submit"
+                className="flex w-full justify-center rounded-md bg-orange-red/80 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-red/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Save changes
+              </button>
             </div>
           </div>
         </div>

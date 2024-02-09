@@ -3,12 +3,13 @@ import avatarIcon from "../../assets/avatarIcon.png";
 import data from "./profile.json";
 import NavBar from "../Navbar/navbar";
 import ParticularsForm from "../ParticularsForm/particulars-form";
+import PreferencesForm from "../PreferencesForm/preferences-form";
 
 export default function Profile() {
   return (
     <>
       <NavBar />
-      <div className="container mx-auto px-4 pt-14 pb-20">
+      <div className="container mx-auto px-4 pt-14">
         <div className="flex-col">
           <div className="flex flex-row space-x-6 items-center">
             <img
@@ -22,14 +23,6 @@ export default function Profile() {
           </div>
           <div className="py-10">
             <Tabs />
-          </div>
-          <div className="py-10">
-            <p className="text-lg mb-4 font-semibold">Upcoming Activities</p>
-            <UpcomingActivitiesTable />
-          </div>
-          <div className="py-10">
-            <p className="text-lg mb-4 font-semibold">Past Activities</p>
-            <PastActivitiestable />
           </div>
         </div>
       </div>
@@ -50,6 +43,14 @@ function Tabs() {
         return (
           <div>
             <OverviewTab numHours={data.numHours} numEvents={data.numEvents} />
+            <div className="py-10">
+              <p className="text-lg mb-4 font-semibold">Upcoming Activities</p>
+              <UpcomingActivitiesTable />
+            </div>
+            <div className="py-10">
+              <p className="text-lg mb-4 font-semibold">Past Activities</p>
+              <PastActivitiestable />
+            </div>
           </div>
         );
       case 2:
@@ -59,7 +60,7 @@ function Tabs() {
           </div>
         );
       case 3:
-        return <div>Volunteering Preferences</div>;
+        return <div><PreferencesForm /></div>;
       default:
         return null;
     }
