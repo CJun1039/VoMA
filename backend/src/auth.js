@@ -1,8 +1,8 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
-const { PrismaClient } = require('@prisma/client');
+import { Router } from 'express';
+import { hash, compare } from 'bcrypt';
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
-const router = express.Router();
+const router = Router();
 
 
 // Register a new volunteer
@@ -13,7 +13,7 @@ router.post('/register', async (req, res) => {
       }
 
     // Hashing passwords
-    const passwordHash = await bcrypt.hash(password, 10);
+    const passwordHash = await hash(password, 10);
 
     // Create a new volunteer
     try {
@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
     }
   
     // Check if the password is correct
-    const passwordCorrect = await bcrypt.compare(password, volunteer.sensitiveInformation.passwordhash);
+    const passwordCorrect = await compare(password, volunteer.sensitiveInformation.passwordhash);
     if (!passwordCorrect) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
@@ -66,4 +66,4 @@ router.post('/login', async (req, res) => {
   
 });
 
-module.exports = router;
+export default router;
