@@ -33,7 +33,7 @@ function Tabs() {
       case 1:
         return (
           <div>
-            <OverviewTab />
+            <OverviewTab numHours={60} numEvents={11} />
           </div>
         );
       case 2:
@@ -47,7 +47,7 @@ function Tabs() {
 
   return (
     <>
-      <div className="flex mb-4">
+      <div className="flex mb-6">
         <div
           className={`cursor-pointer py-2 pr-8 mr-10 border-b-2  hover:border-orange-700 hover:text-orange-700 transition ${
             activeTab === 1
@@ -84,17 +84,23 @@ function Tabs() {
   );
 }
 
-function OverviewTab() {
+function OverviewTab(props) {
+  const { numHours, numEvents } = props;
   return (
     <>
-      <div>
+      <div className="mb-4">
         From the start of your volunteering journey till now, you have...
       </div>
-      <div className="flex">
-        <div>
+      <div className="flex space-x-8">
+        <div className="border-2 rounded-lg py-2 pl-4 pr-12 text-left">
           <p>clocked a total of</p>
-          <p>60</p>
+          <p className="text-4xl font-bold">{numHours}</p>
           <p>hours</p>
+        </div>
+        <div className="border-2 rounded-lg py-2 pl-4 pr-12 text-left">
+          <p>made an impact on</p>
+          <p className="text-4xl font-bold">{numEvents}</p>
+          <p>events</p>
         </div>
       </div>
     </>
