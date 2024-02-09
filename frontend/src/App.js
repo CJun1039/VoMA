@@ -12,25 +12,26 @@ import {
 import Dashboard from "./components/Dashboard/dashboard";
 import ParticularsForm from "./components/ParticularsForm/particulars-form";
 import PreferencesForm from "./components/PreferencesForm/preferences-form";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import UserContext from './components/context/UserContext';
-
+import UserContext from "./components/context/UserContext";
+import CreateActivity from "./components/CreateActivity/create-activity";
 
 function App() {
   const [userData, setUserData] = useState(null);
 
   return (
     <BrowserRouter>
-    <UserContext.Provider value={{ userData, setUserData }}>
-      <Routes>
-        <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/register" element={<RegistrationPage />}></Route>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/events/:eventId" element={<SingleEventPage />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/particulars" element={<ParticularsForm />} />
-      </Routes>
+      <UserContext.Provider value={{ userData, setUserData }}>
+        <Routes>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/register" element={<RegistrationPage />}></Route>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/events/:eventId" element={<SingleEventPage />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/particulars" element={<ParticularsForm />} />
+          <Route path="/new" element={<CreateActivity />} />
+        </Routes>
       </UserContext.Provider>
     </BrowserRouter>
   );
