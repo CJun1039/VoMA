@@ -35,10 +35,9 @@ export default function RegistrationContainer() {
       if (response.ok) {
         const responseData = await response.json();
         setUserData({
-          id: responseData 
+          user: responseData 
         });
-        localStorage.setItem("id", responseData);
-        // Update state with response data
+        localStorage.setItem("user", responseData);
 
 
         navigate("/dashboard");

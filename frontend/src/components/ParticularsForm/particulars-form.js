@@ -1,12 +1,15 @@
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-// import { post } from "../../../../backend/src/auth";
 
-export default function ParticularsForm(props) {
-  const { data } = props;
+
+export default function ParticularsForm(userData) {
+
+  userData = userData.userData;
+
+
   return (
     <form>
       <div className="space-y-12">
-        <div className>
+        <div className=''>
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-2">
               <label
@@ -20,7 +23,7 @@ export default function ParticularsForm(props) {
                   type="text"
                   name="firstname"
                   id="firstname"
-                  placeholder={data.firstName}
+                  placeholder={userData["firstname"]}
                   readOnly
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
                 />
@@ -40,7 +43,7 @@ export default function ParticularsForm(props) {
                   name="lastname"
                   id="lastname"
                   autoComplete="family-name"
-                  placeholder={data.lastName}
+                  placeholder={userData["lastname"]}
                   readOnly
                   className="block w-1/2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
                 />
@@ -61,7 +64,7 @@ export default function ParticularsForm(props) {
                   type="email"
                   autoComplete="email"
                   readOnly
-                  placeholder={data.email}
+                  placeholder={userData["email"]}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -78,7 +81,7 @@ export default function ParticularsForm(props) {
                 <input
                   id="mobile"
                   name="mobile"
-                  placeholder={data.mobileNumber}
+                  placeholder={userData["phone"]}
                   type="tel"
                   className="block w-1/6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-red/80 sm:text-sm sm:leading-6"
                 />
@@ -97,18 +100,11 @@ export default function ParticularsForm(props) {
                   id="gender"
                   name="gender"
                   className="block w-1/6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-red/80 sm:max-w-xs sm:text-sm sm:leading-6"
+                  defaultValue={userData["gender"]}
                 >
-                  <option selected={data.gender === "Male" ? "Selected" : ""}>
-                    Male
-                  </option>
-                  <option selected={data.gender === "Female" ? "Selected" : ""}>
-                    Female
-                  </option>
-                  <option
-                    selected={data.gender === "NonBinary" ? "Selected" : ""}
-                  >
-                    Non-binary
-                  </option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="NonBinary">Non-binary</option>
                 </select>
               </div>
             </div>
@@ -156,9 +152,10 @@ export default function ParticularsForm(props) {
               </label>
               <div className="mt-2">
                 <select
-                  id="residential"
+                  id="nationality"
                   name="gender"
                   className="block w-1/3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-red/80 sm:max-w-xs sm:text-sm sm:leading-6"
+                  defaultValue={userData.nationality}
                 >
                   <option>Singaporean</option>
                   <option>Permanent Resident (PR)</option>

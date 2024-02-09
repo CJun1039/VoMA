@@ -1,4 +1,3 @@
-import { useState } from "react";
 import CountUp from "react-countup";
 import avatarIcon from "../../assets/avatarIcon.png";
 import data from "./profile.json";
@@ -6,8 +5,14 @@ import NavBar from "../Navbar/navbar";
 import ParticularsForm from "../ParticularsForm/particulars-form";
 import PreferencesForm from "../PreferencesForm/preferences-form";
 import VolunteerChart from "./volunteer-chart";
+import { useState, useContext } from "react";
+import UserContext from "../context/UserContext";
+
 
 export default function Profile() {
+  const { userData } = useContext(UserContext);
+
+
   return (
     <>
       <NavBar />
@@ -15,12 +20,12 @@ export default function Profile() {
         <div className="flex-col">
           <div className="flex flex-row space-x-6 items-center">
             <img
-              src={avatarIcon}
+              src={userData.user.profilePic}
               alt="avatar"
               className="rounded-full h-20 border-slate-400 border"
             />
             <p className="font-semibold text-lg">
-              {data.userData.firstName + " " + data.userData.lastName}
+              {userData.user.firstname + ' ' + userData.user.lastname}
             </p>
           </div>
           <div className="py-10">
@@ -34,6 +39,7 @@ export default function Profile() {
 
 function Tabs() {
   const [activeTab, setActiveTab] = useState(1);
+  const { userData } = useContext(UserContext);
 
   const handleTabClick = (tabNumber) => {
     setActiveTab(tabNumber);
@@ -44,9 +50,9 @@ function Tabs() {
       case 1:
         return (
           <div>
-            <OverviewTab numHours={data.numHours} numEvents={data.numEvents} />
+            <OverviewTab />
             <div className="w-1/2 mt-7">
-            <VolunteerChart />
+              <VolunteerChart />
             </div>
             <div className="py-10">
               <p className="text-lg mb-4 font-semibold">Upcoming Activities</p>
@@ -59,13 +65,9 @@ function Tabs() {
           </div>
         );
       case 2:
-        return (
-          <div>
-            <ParticularsForm data={data.userData} />
-          </div>
-        );
+        return <ParticularsForm userData={userData.user} />;
       case 3:
-        return <div><PreferencesForm /></div>;
+        return <PreferencesForm userData={userData.user}/>;
       default:
         return null;
     }
@@ -77,8 +79,8 @@ function Tabs() {
         <div
           className={`cursor-pointer py-2 pr-8 mr-10 border-b-2  hover:border-orange-700 hover:text-orange-700 transition ${
             activeTab === 1
-              ? "border-b-2 border-orange-500 text-orange-500 font-bold"
-              : ""
+              ? 'border-b-2 border-orange-500 text-orange-500 font-bold'
+              : ''
           }`}
           onClick={() => handleTabClick(1)}
         >
@@ -87,8 +89,8 @@ function Tabs() {
         <div
           className={`cursor-pointer py-2 pr-8 mr-10 border-b-2  hover:border-orange-700 hover:text-orange-700 transition ${
             activeTab === 2
-              ? "border-b-2 border-orange-500 text-orange-500 font-bold"
-              : ""
+              ? 'border-b-2 border-orange-500 text-orange-500 font-bold'
+              : ''
           }`}
           onClick={() => handleTabClick(2)}
         >
@@ -97,8 +99,8 @@ function Tabs() {
         <div
           className={`cursor-pointer py-2 pr-8 mr-10 border-b-2  hover:border-orange-700 hover:text-orange-700 transition ${
             activeTab === 3
-              ? "border-b-2 border-orange-500 text-orange-500 font-bold"
-              : ""
+              ? 'border-b-2 border-orange-500 text-orange-500 font-bold'
+              : ''
           }`}
           onClick={() => handleTabClick(3)}
         >
@@ -110,25 +112,23 @@ function Tabs() {
   );
 }
 
-function OverviewTab(props) {
-  const { numHours, numEvents } = props;
+function OverviewTab() {
+  const { userData } = useContext(UserContext);
   return (
     <>
-      <div className="mb-4">
-        From the start of your volunteering journey till now, you have...
-      </div>
+      <div className="mb-4">From the start of your volunteering journey till now, you have...</div>
       <div className="flex space-x-8">
         <div className="border-2 rounded-lg py-2 pl-4 pr-12 text-left">
           <p>clocked a total of</p>
           <p className="text-4xl font-bold">
-            <CountUp duration={3} end={numHours} />
+            <CountUp duration={3} end={userData.user.numHours} />
           </p>
           <p>hours</p>
         </div>
         <div className="border-2 rounded-lg py-2 pl-4 pr-12 text-left">
           <p>made an impact on</p>
           <p className="text-4xl font-bold">
-            <CountUp duration={3} end={numEvents} />
+            <CountUp duration={3} end={userData.user.numEvents} />
           </p>
           <p>events</p>
         </div>
@@ -136,6 +136,7 @@ function OverviewTab(props) {
     </>
   );
 }
+
 
 function UpcomingActivitiesTable() {
   return (

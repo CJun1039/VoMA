@@ -15,7 +15,6 @@ router.get('/volunteers', async (req, res) => {
 router.get('/details', async (req, res) => {
     // Change to req.id once got state management
     const id = req.body.id; 
-    console.log('id', id);
     try {
         const volunteer = await prisma.volunteer.findUnique({
             where: { id }, 

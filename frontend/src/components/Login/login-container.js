@@ -27,13 +27,13 @@ export default function LoginContainer() {
       if (loginRes.ok) {
         const responseData = await loginRes.json();
         setUserData({
-          id: responseData 
+          user : responseData
         });
-        localStorage.setItem("id", responseData);
+        localStorage.setItem("user", responseData);
         navigate("/dashboard");
       } else {
-        const errorMessage = await loginRes.text(); // Get error message from response body
-        setError(errorMessage || "Login failed. Please try again."); // Show generic error message if no response body
+        const errorMessage = await loginRes.text();
+        setError(errorMessage || "Login failed. Please try again."); 
       }
     } catch (err) {
       setLoading(false);
