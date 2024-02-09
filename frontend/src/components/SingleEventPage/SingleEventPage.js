@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import eventImage from "../../assets/eventImage.png";
 import data from "./event.json";
 import NavBar from "../Navbar/navbar";
+import DialogBox from "../Dialog/dialog-box";
 
 export default function SingleEventPage() {
   const navigate = useNavigate();
@@ -100,8 +101,9 @@ function Tabs() {
 function LeftBlock(props) {
   const { data } = props;
   const navigate = useNavigate();
+  const [showDialog, setShowDialog] = useState(false);
   const handleRegisterButton = () => {
-    navigate("/dashboard");
+    setShowDialog(true);
   };
 
   return (
@@ -132,6 +134,7 @@ function LeftBlock(props) {
           Register Interest
         </button>
       </div>
+      {showDialog && <DialogBox />}
     </div>
   );
 }
