@@ -62,7 +62,7 @@ router.post('/login', async (req, res) => {
     }
   
     // Return the volunteer
-    res.json(volunteer);
+    res.json("success");
   
 });
 
