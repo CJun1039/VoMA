@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CountUp from "react-countup";
 import avatarIcon from "../../assets/avatarIcon.png";
 import data from "./profile.json";
 import NavBar from "../Navbar/navbar";
@@ -119,12 +120,16 @@ function OverviewTab(props) {
       <div className="flex space-x-8">
         <div className="border-2 rounded-lg py-2 pl-4 pr-12 text-left">
           <p>clocked a total of</p>
-          <p className="text-4xl font-bold">{numHours}</p>
+          <p className="text-4xl font-bold">
+            <CountUp duration={3} end={numHours} />
+          </p>
           <p>hours</p>
         </div>
         <div className="border-2 rounded-lg py-2 pl-4 pr-12 text-left">
           <p>made an impact on</p>
-          <p className="text-4xl font-bold">{numEvents}</p>
+          <p className="text-4xl font-bold">
+            <CountUp duration={3} end={numEvents} />
+          </p>
           <p>events</p>
         </div>
       </div>
