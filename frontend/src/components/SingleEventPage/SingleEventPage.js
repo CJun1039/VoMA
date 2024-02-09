@@ -3,9 +3,9 @@ import eventImage from "../../assets/eventImage.png";
 
 export default function SingleEventPage() {
   return (
-    <div className="container mx-auto px-4 pb-20 grid grid-cols-5 gap-32">
+    <div className="container mx-auto px-4 pt-14 pb-20 grid grid-cols-5 gap-32">
       <div className="col-span-3">
-        <div className="flex flex-col items-start pt-14">
+        <div className="flex flex-col items-start">
           <button className="bg-orange-500 hover:bg-orange-700 text-white py-2 px-4 font-bold rounded-lg">
             Return to Dashboard
           </button>
