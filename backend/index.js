@@ -7,11 +7,14 @@ import userRoutes from './src/users.js';
 
 const app = express();
 
+app.use(express.json());
+
 app.use(json());
 app.use(cors());
 
-app.use('/auth', authRoutes);
-app.use('/users', userRoutes);
+
+app.use(authRoutes);
+app.use(userRoutes);
 
 
 const PORT = process.env.PORT || 3001;

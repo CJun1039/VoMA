@@ -35,6 +35,7 @@ model Volunteer {
   profilePic   String?
 
   sensitiveInformation SensitiveInformation?
+  sensitiveInformationId Int? @unique
   participates         VolunteerParticipates[]
 }
 
@@ -43,7 +44,7 @@ model SensitiveInformation {
   passwordhash String
   isAdmin     Boolean
 
-  volunteer Volunteer @relation(fields: [volunteerId], references: [id])
+  volunteer Volunteer @relation(fields: [volunteerId], references: [id], onDelete: Cascade)
 }
 
 model Events {
