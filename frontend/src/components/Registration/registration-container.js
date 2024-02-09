@@ -1,32 +1,47 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import UserContext from "../context/UserContext";
+
 
 export default function RegistrationContainer() {
 
 
-  const { setUserData } = useContext(UserContext);
+  const { setUserData } = useContext(UserContext) || {};
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
 
 
   const handleRegister = async (e) => {
     try {
       e.preventDefault();
-      const formData = new FormData(e.target);
+      const formData = new FormData(e.target); // Ensure e.target is referencing the form element
       const data = {
         firstname: formData.get("firstname"),
         lastname: formData.get("lastname"),
         email: formData.get("email"),
         password: formData.get("password"),
       };
-      const response = await post("/register", data);
+  
+      const response = await fetch("http://localhost:3001/register", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
       if (response.ok) {
+        const responseData = await response.json();
+        /*
         setUserData({
-          token: response.data.token,
-          volunteer: response.data.volunteer,
-          isAdmin: response.data.user.sensitiveInformation.isAdmin,
+          token: responseData.token,
+          volunteer: responseData.volunteer,
+          isAdmin: responseData.user.sensitiveInformation.isAdmin,
         });
-        localStorage.setItem("auth-token", response.data.token);
+        localStorage.setItem("auth-token", responseData.token);
+        */
         navigate("/dashboard");
       } else {
         setError("Registration failed. Please try again."); 
@@ -36,7 +51,7 @@ export default function RegistrationContainer() {
       setError("Internal server error. Please try again."); 
     }
   };
-
+  
 
 
   return (
@@ -50,7 +65,7 @@ export default function RegistrationContainer() {
         </div>
 
         <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleRegister}>
             <div className="flex gap-x-6">
               <div>
                 <label
@@ -71,7 +86,7 @@ export default function RegistrationContainer() {
               </div>
               <div>
                 <label
-                  htmlFor="firstname"
+                  htmlFor="lastname"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Last name
@@ -107,20 +122,18 @@ export default function RegistrationContainer() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Password
-                </label>
-              </div>
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Password
+              </label>
               <div>
                 <input
                   id="password"
                   name="password"
                   type="password"
-                  autoComplete="current-password"
+                  autoComplete="new-password"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -129,7 +142,7 @@ export default function RegistrationContainer() {
 
             <div>
               <label
-                htmlFor="email"
+                htmlFor="confirm-password"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Confirm password
@@ -139,19 +152,17 @@ export default function RegistrationContainer() {
                   id="confirm-password"
                   name="confirm-password"
                   type="password"
-                  autoComplete="current-password"
+                  autoComplete="new-password"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
-                    <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-
+            <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
               <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-orange-red/80 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-red/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                onClick={handleRegister}
               >
                 Sign up
               </button>
