@@ -54,7 +54,7 @@ model Events {
   hours             String?
   cause             String?
   numberOfVolunteers Int?
-  restrictions      String>
+  restrictions      String?
   location          String?
   description       String?
   type              String?
