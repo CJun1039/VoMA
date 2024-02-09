@@ -4,6 +4,21 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 const router = Router();
 
+/**
+ * Retrieve information about an Event
+ */
+router.get('/event_details', async (req, res) => {
+    const { id } = req.events;
+    const user = await prisma.events.findUnique({
+        where: { id },
+        select: {
+            id: true,
+            name: true,
+        },
+    });
+    res.json(events);
+});
+
 /** 
  * Posts a new Event
  * Name of event is required. EventId would be auto-generated.
@@ -53,6 +68,7 @@ router.post('/create_event', async (req, res) => {
  */
 router.put('/update_event', async (req, res) => {
     const { 
+        id,
         name, 
         date, 
         time, 
@@ -64,14 +80,24 @@ router.put('/update_event', async (req, res) => {
         description, 
         type
      } = req.body;
-    const user = await prisma.events.update({
+    const updated_Event = await prisma.events.update({
         where: { id },
-        data: { email, name },
+        data: { 
+            name, 
+            date, 
+            time, 
+            hours, 
+            cause, 
+            numberOfVolunteers, 
+            restrictions, 
+            location, 
+            description, 
+            type 
+        },
         select: {
             id: true,
-            email: true,
             name: true,
         },
     });
-    res.json(user);
+    res.json(events);
 });
