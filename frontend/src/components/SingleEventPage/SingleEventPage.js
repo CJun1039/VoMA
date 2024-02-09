@@ -17,7 +17,7 @@ export default function SingleEventPage() {
         <div className="col-span-3">
           <div className="flex flex-col items-start">
             <button
-              className="bg-orange-500 hover:bg-orange-700 text-white py-2 px-4 font-bold rounded-lg"
+              className="bg-orange-red/80 hover:bg-orange-red/90 text-sm text-white py-2 px-4 font-semibold rounded-lg"
               onClick={handleNavigateButton}
             >
               Return to Dashboard
@@ -99,6 +99,11 @@ function Tabs() {
 
 function LeftBlock(props) {
   const { data } = props;
+  const navigate = useNavigate();
+  const handleRegisterButton = () => {
+    navigate("/dashboard");
+  };
+
   return (
     <div className="flex flex-col pt-14">
       <div className="shadow-md p-6 rounded-md mb-4">
@@ -118,6 +123,14 @@ function LeftBlock(props) {
           Contact number: {data.contact.contact_number}
         </p>
         <p className="font-light text-sm">Email: {data.contact.email}</p>
+      </div>
+      <div className="mt-2">
+        <button
+          className="rounded-md bg-orange-red/80 px-6 py-1.5 font-bold leading-6 text-white shadow-sm hover:bg-orange-red/90"
+          onClick={handleRegisterButton}
+        >
+          Register Interest
+        </button>
       </div>
     </div>
   );
