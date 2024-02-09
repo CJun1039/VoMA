@@ -13,11 +13,7 @@ import Dashboard from "./components/Dashboard/dashboard";
 import ParticularsForm from "./components/ParticularsForm/particulars-form";
 import PreferencesForm from "./components/PreferencesForm/preferences-form";
 
-
-
 function App() {
-
-
   return (
     <BrowserRouter>
       <Routes>
@@ -25,9 +21,8 @@ function App() {
         <Route path="/register" element={<RegistrationPage />}></Route>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/event" element={<SingleEventPage />} />
-        <SingleEventPage />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/particulars" element={<ParticularsForm />}/>
+        <Route path="/particulars" element={<ParticularsForm />} />
       </Routes>
     </BrowserRouter>
   );

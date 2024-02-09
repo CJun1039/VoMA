@@ -1,10 +1,19 @@
 import { useState } from "react";
+import avatarIcon from "../../assets/avatarIcon.png";
+import data from "./profile.json";
 
 export default function Profile() {
   return (
     <div className="container mx-auto px-4 pt-14 pb-20">
       <div className="flex-col">
-        <div className="pb-10">Avatar + Name</div>
+        <div className="flex flex-row space-x-6 items-center">
+          <img
+            src={avatarIcon}
+            alt="avatar"
+            className="rounded-full h-20 border-slate-400 border"
+          />
+          <p className="font-semibold text-lg">{data.name}</p>
+        </div>
         <div className="py-10">
           <Tabs />
         </div>
@@ -33,7 +42,7 @@ function Tabs() {
       case 1:
         return (
           <div>
-            <OverviewTab numHours={60} numEvents={11} />
+            <OverviewTab numHours={data.numHours} numEvents={data.numEvents} />
           </div>
         );
       case 2:
@@ -121,38 +130,17 @@ function UpcomingActivitiesTable() {
         </tr>
       </thead>
       <tbody>
-        <UpcomingActivitiesRow
-          name="Heart-2-Heart Talk (2nd Edition)"
-          beneficiary="Thye Hwa Kuan"
-          cause="Elderly"
-          fromDate="30/01/2023"
-          toDate="07/02/2023"
-          status="Pending Approval"
-        />
-        <UpcomingActivitiesRow
-          name="Heart-2-Heart Talk (2nd Edition)"
-          beneficiary="Thye Hwa Kuan"
-          cause="Elderly"
-          fromDate="30/01/2023"
-          toDate="07/02/2023"
-          status="Confirmed"
-        />
-        <UpcomingActivitiesRow
-          name="Heart-2-Heart Talk (2nd Edition)"
-          beneficiary="Thye Hwa Kuan"
-          cause="Elderly"
-          fromDate="30/01/2023"
-          toDate="07/02/2023"
-          status="Confirmed"
-        />
-        <UpcomingActivitiesRow
-          name="Heart-2-Heart Talk (2nd Edition)"
-          beneficiary="Thye Hwa Kuan"
-          cause="Elderly"
-          fromDate="30/01/2023"
-          toDate="07/02/2023"
-          status="Confirmed"
-        />
+        {data.UpcomingActivities.map((activity, index) => (
+          <UpcomingActivitiesRow
+            key={index}
+            name={activity.name}
+            beneficiary={activity.beneficiary}
+            cause={activity.cause}
+            fromDate={activity.fromDate}
+            toDate={activity.toDate}
+            status={activity.status}
+          />
+        ))}
       </tbody>
     </table>
   );
@@ -185,20 +173,16 @@ function PastActivitiestable() {
         </tr>
       </thead>
       <tbody>
-        <PastActivitiesRow
-          name="Heart-2-Heart Talk (2nd Edition)"
-          beneficiary="Thye Hwa Kuan"
-          cause="Elderly"
-          fromDate="30/01/2023"
-          toDate="07/02/2023"
-        />
-        <PastActivitiesRow
-          name="Heart-2-Heart Talk (2nd Edition)"
-          beneficiary="Thye Hwa Kuan"
-          cause="Elderly"
-          fromDate="30/01/2023"
-          toDate="07/02/2023"
-        />
+        {data.PastActivities.map((activity, index) => (
+          <PastActivitiesRow
+            key={index}
+            name={activity.name}
+            beneficiary={activity.beneficiary}
+            cause={activity.cause}
+            fromDate={activity.fromDate}
+            toDate={activity.toDate}
+          />
+        ))}
       </tbody>
     </table>
   );

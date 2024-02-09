@@ -1,12 +1,7 @@
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-import { post } from "../../../../backend/src/auth";
-
-
+// import { post } from "../../../../backend/src/auth";
 
 export default function ParticularsForm() {
-
-
-
   return (
     <form className="mx-20">
       <div className="space-y-12">

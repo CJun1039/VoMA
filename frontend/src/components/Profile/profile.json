@@ -1,0 +1,57 @@
+{
+  "name": "Joel Wong",
+  "numHours": 60,
+  "numEvents": 10,
+  "UpcomingActivities": [
+    {
+      "name": "Heart-2-Heart Talk (2nd Edition)",
+      "beneficiary": "Thye Hwa Kuan",
+      "cause": "Elderly",
+      "fromDate": "30/01/2023",
+      "toDate": "07/02/2023",
+      "status": "Pending Approval"
+    },
+    {
+      "name": "Community Cleanup",
+      "beneficiary": "Local Community Center",
+      "cause": "Environment",
+      "fromDate": "15/02/2023",
+      "toDate": "16/02/2023",
+      "status": "Scheduled"
+    },
+    {
+      "name": "Food Drive",
+      "beneficiary": "City Food Bank",
+      "cause": "Hunger",
+      "fromDate": "22/03/2023",
+      "toDate": "23/03/2023",
+      "status": "Planned"
+    },
+    {
+      "name": "Blood Donation Camp",
+      "beneficiary": "Red Cross",
+      "cause": "Health",
+      "fromDate": "10/04/2023",
+      "toDate": "11/04/2023",
+      "status": "Upcoming"
+    }
+  ],
+  "PastActivities": [
+    {
+      "name": "Charity Gala",
+      "beneficiary": "Children's Hospital",
+      "cause": "Health",
+      "fromDate": "15/12/2022",
+      "toDate": "16/12/2022",
+      "status": "Completed"
+    },
+    {
+      "name": "Holiday Toy Drive",
+      "beneficiary": "Local Orphanage",
+      "cause": "Children",
+      "fromDate": "20/12/2022",
+      "toDate": "21/12/2022",
+      "status": "Completed"
+    }
+  ]
+}
