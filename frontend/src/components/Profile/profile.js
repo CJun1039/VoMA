@@ -4,6 +4,7 @@ import data from "./profile.json";
 import NavBar from "../Navbar/navbar";
 import ParticularsForm from "../ParticularsForm/particulars-form";
 import PreferencesForm from "../PreferencesForm/preferences-form";
+import VolunteerChart from "./volunteer-chart";
 
 export default function Profile() {
   return (
@@ -43,6 +44,9 @@ function Tabs() {
         return (
           <div>
             <OverviewTab numHours={data.numHours} numEvents={data.numEvents} />
+            <div className="w-1/2 mt-7">
+            <VolunteerChart />
+            </div>
             <div className="py-10">
               <p className="text-lg mb-4 font-semibold">Upcoming Activities</p>
               <UpcomingActivitiesTable />
