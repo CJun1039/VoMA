@@ -1,5 +1,6 @@
 import LoginPage from "./components/LoginPage/login-page";
 import SingleEventPage from "./components/SingleEventPage/SingleEventPage";
+import Profile from "./components/Profile/profile";
 import "./App.css";
 import RegistrationPage from "./components/RegistrationPage/registration-page";
 import {
@@ -24,6 +25,8 @@ function App() {
         <Route path="/register" element={<RegistrationPage />}></Route>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/event" element={<SingleEventPage />} />
+        <SingleEventPage />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/particulars" element={<ParticularsForm />}/>
       </Routes>
     </BrowserRouter>
