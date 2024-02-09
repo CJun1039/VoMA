@@ -16,6 +16,7 @@ import React, { useState } from "react";
 
 import UserContext from "./components/context/UserContext";
 import CreateActivity from "./components/CreateActivity/create-activity";
+import AdminDashboard from "./components/AdminDashboard/admin-dashboard";
 
 function App() {
   const [userData, setUserData] = useState(null);
@@ -30,7 +31,10 @@ function App() {
           <Route path="/events/:eventId" element={<SingleEventPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/particulars" element={<ParticularsForm />} />
+          
+          // These routes should be protected.
           <Route path="/new" element={<CreateActivity />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>

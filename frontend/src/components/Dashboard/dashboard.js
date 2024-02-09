@@ -9,8 +9,6 @@ import UserContext from "../context/UserContext";
 export default function Dashboard() {
   const { userData } = useContext(UserContext);
 
-  
-
   return (
     <>
       <Navbar />
