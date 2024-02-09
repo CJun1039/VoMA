@@ -1,0 +1,46 @@
+{
+    "allActivities": [
+        {
+            "title": "Community Cleanup Day",
+            "location": "Greenfield Park",
+            "organisation": "Clean Earth Foundation"
+        },
+        {
+            "title": "Food Drive Campaign",
+            "location": "Downtown Plaza",
+            "organisation": "Local Food Bank"
+        },
+        {
+            "title": "Tech Workshop for Kids",
+            "location": "Innovation Hub",
+            "organisation": "Tech Education Society"
+        },
+        {
+            "title": "Art Exhibition Fundraiser",
+            "location": "City Art Gallery",
+            "organisation": "Art for a Cause"
+        }
+    ],
+    "recommendedActivities": [
+        {
+            "title": "Community Cleanup Day",
+            "location": "Greenfield Park",
+            "organisation": "Clean Earth Foundation"
+        },
+        {
+            "title": "Food Drive Campaign",
+            "location": "Downtown Plaza",
+            "organisation": "Local Food Bank"
+        },
+        {
+            "title": "Tech Workshop for Kids",
+            "location": "Innovation Hub",
+            "organisation": "Tech Education Society"
+        },
+        {
+            "title": "Art Exhibition Fundraiser",
+            "location": "City Art Gallery",
+            "organisation": "Art for a Cause"
+        }
+    ]
+}

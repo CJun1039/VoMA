@@ -1,12 +1,13 @@
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 // import { post } from "../../../../backend/src/auth";
 
-export default function ParticularsForm() {
+export default function ParticularsForm(props) {
+  const { data } = props;
   return (
-    <form className="mx-20">
+    <form>
       <div className="space-y-12">
-        <div className="pb-12">
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div className="pb-4">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-2">
               <label
                 htmlFor="firstname"
@@ -19,7 +20,7 @@ export default function ParticularsForm() {
                   type="text"
                   name="firstname"
                   id="firstname"
-                  placeholder="Joel"
+                  placeholder={data.firstName}
                   readOnly
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
                 />
@@ -39,7 +40,7 @@ export default function ParticularsForm() {
                   name="lastname"
                   id="lastname"
                   autoComplete="family-name"
-                  placeholder="Wong"
+                  placeholder={data.lastName}
                   readOnly
                   className="block w-1/2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
                 />
@@ -60,7 +61,7 @@ export default function ParticularsForm() {
                   type="email"
                   autoComplete="email"
                   readOnly
-                  placeholder="joelwong@gmail.com"
+                  placeholder={data.email}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -77,6 +78,7 @@ export default function ParticularsForm() {
                 <input
                   id="mobile"
                   name="mobile"
+                  placeholder={data.mobileNumber}
                   type="tel"
                   className="block w-1/6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-red/80 sm:text-sm sm:leading-6"
                 />
@@ -96,9 +98,17 @@ export default function ParticularsForm() {
                   name="gender"
                   className="block w-1/6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-red/80 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Non-binary</option>
+                  <option selected={data.gender === "Male" ? "Selected" : ""}>
+                    Male
+                  </option>
+                  <option selected={data.gender === "Female" ? "Selected" : ""}>
+                    Female
+                  </option>
+                  <option
+                    selected={data.gender === "NonBinary" ? "Selected" : ""}
+                  >
+                    Non-binary
+                  </option>
                 </select>
               </div>
             </div>
