@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import eventImage from "../../assets/eventImage.png";
 import data from "./event.json";
+import NavBar from "../Navbar/navbar";
 
 export default function SingleEventPage() {
   const navigate = useNavigate();
@@ -10,27 +11,30 @@ export default function SingleEventPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 pt-14 pb-20 grid grid-cols-5 gap-32">
-      <div className="col-span-3">
-        <div className="flex flex-col items-start">
-          <button
-            className="bg-orange-500 hover:bg-orange-700 text-white py-2 px-4 font-bold rounded-lg"
-            onClick={handleNavigateButton}
-          >
-            Return to Dashboard
-          </button>
-          <img
-            src={eventImage}
-            alt="Event"
-            className="object-cover object-center h-96 w-full rounded-lg my-6"
-          />
-          <Tabs />
+    <>
+      <NavBar />
+      <div className="container mx-auto px-4 pt-14 pb-20 grid grid-cols-5 gap-32">
+        <div className="col-span-3">
+          <div className="flex flex-col items-start">
+            <button
+              className="bg-orange-500 hover:bg-orange-700 text-white py-2 px-4 font-bold rounded-lg"
+              onClick={handleNavigateButton}
+            >
+              Return to Dashboard
+            </button>
+            <img
+              src={eventImage}
+              alt="Event"
+              className="object-cover object-center h-96 w-full rounded-lg my-6"
+            />
+            <Tabs />
+          </div>
+        </div>
+        <div className="col-span-2">
+          <LeftBlock data={data} />
         </div>
       </div>
-      <div className="col-span-2">
-        <LeftBlock data={data} />
-      </div>
-    </div>
+    </>
   );
 }
 

@@ -1,7 +1,15 @@
 {
-  "name": "Joel Wong",
+  "userData": 
+  {
+    "firstName": "Joel",
+    "lastName": "Wong", 
+    "email": "joelwong@gmail.com", 
+    "mobileNumber": "90001111",
+    "gender": "Male", 
+    "dob": "1999-01-08"
+  },
   "numHours": 60,
-  "numEvents": 10,
+  "numEvents": 10, 
   "UpcomingActivities": [
     {
       "name": "Heart-2-Heart Talk (2nd Edition)",

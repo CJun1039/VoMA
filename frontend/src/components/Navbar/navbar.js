@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, Transition } from "@headlessui/react";
 import { BellIcon } from "@heroicons/react/24/outline";
 
@@ -7,6 +8,10 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  const navigate = useNavigate();
+  const handleLogoClick = () => {
+    navigate("/dashboard");
+  };
   return (
     <nav className="bg-orange-red/80">
       <div className="mx-auto px-2 sm:px-6 lg:px-8">
@@ -14,7 +19,12 @@ export default function Example() {
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden"></div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img className="h-8 w-auto" src="/logo.png" alt="Big At Heart" />
+              <img
+                className="h-8 w-auto hover:cursor-pointer"
+                src="/logo.png"
+                alt="Big At Heart"
+                onClick={handleLogoClick}
+              />
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -51,16 +61,15 @@ export default function Example() {
                 <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <Menu.Item>
                     {({ active }) => (
-                      <a
-                        href="#"
+                      <Link
+                        to="/profile"
                         className={classNames(
                           active ? "bg-gray-100" : "",
                           "block px-4 py-2 text-sm text-gray-700"
                         )}
-                        s
                       >
                         Your Profile
-                      </a>
+                      </Link>
                     )}
                   </Menu.Item>
                   <Menu.Item>

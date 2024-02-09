@@ -1,32 +1,39 @@
 import { useState } from "react";
 import avatarIcon from "../../assets/avatarIcon.png";
 import data from "./profile.json";
+import NavBar from "../Navbar/navbar";
+import ParticularsForm from "../ParticularsForm/particulars-form";
 
 export default function Profile() {
   return (
-    <div className="container mx-auto px-4 pt-14 pb-20">
-      <div className="flex-col">
-        <div className="flex flex-row space-x-6 items-center">
-          <img
-            src={avatarIcon}
-            alt="avatar"
-            className="rounded-full h-20 border-slate-400 border"
-          />
-          <p className="font-semibold text-lg">{data.name}</p>
-        </div>
-        <div className="py-10">
-          <Tabs />
-        </div>
-        <div className="py-10">
-          <p className="text-lg mb-4 font-semibold">Upcoming Activities</p>
-          <UpcomingActivitiesTable />
-        </div>
-        <div className="py-10">
-          <p className="text-lg mb-4 font-semibold">Past Activities</p>
-          <PastActivitiestable />
+    <>
+      <NavBar />
+      <div className="container mx-auto px-4 pt-14 pb-20">
+        <div className="flex-col">
+          <div className="flex flex-row space-x-6 items-center">
+            <img
+              src={avatarIcon}
+              alt="avatar"
+              className="rounded-full h-20 border-slate-400 border"
+            />
+            <p className="font-semibold text-lg">
+              {data.userData.firstName + " " + data.userData.lastName}
+            </p>
+          </div>
+          <div className="py-10">
+            <Tabs />
+          </div>
+          <div className="py-10">
+            <p className="text-lg mb-4 font-semibold">Upcoming Activities</p>
+            <UpcomingActivitiesTable />
+          </div>
+          <div className="py-10">
+            <p className="text-lg mb-4 font-semibold">Past Activities</p>
+            <PastActivitiestable />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -46,7 +53,11 @@ function Tabs() {
           </div>
         );
       case 2:
-        return <div>Personal Particulars</div>;
+        return (
+          <div>
+            <ParticularsForm data={data.userData} />
+          </div>
+        );
       case 3:
         return <div>Volunteering Preferences</div>;
       default:
