@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,  } from "react";
 import UserContext from "../context/UserContext";
 
 
 export default function RegistrationContainer() {
 
 
-  const { setUserData } = useContext(UserContext) || {};
+  const { setUserData } = useContext(UserContext)
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -34,14 +34,13 @@ export default function RegistrationContainer() {
   
       if (response.ok) {
         const responseData = await response.json();
-        /*
         setUserData({
-          token: responseData.token,
-          volunteer: responseData.volunteer,
-          isAdmin: responseData.user.sensitiveInformation.isAdmin,
+          id: responseData 
         });
-        localStorage.setItem("auth-token", responseData.token);
-        */
+        localStorage.setItem("id", responseData);
+        // Update state with response data
+
+
         navigate("/dashboard");
       } else {
         setError("Registration failed. Please try again."); 

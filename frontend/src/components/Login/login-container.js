@@ -2,10 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import UserContext from "../context/UserContext";
 
+
 export default function LoginContainer() {
   const navigate = useNavigate();
-  const { setUserData } = useContext(UserContext) || {};
-
+  const { setUserData } = useContext(UserContext)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -23,24 +23,25 @@ export default function LoginContainer() {
         },
         body: JSON.stringify(loginUser),
       });
+  
       if (loginRes.ok) {
+        const responseData = await loginRes.json();
+        setUserData({
+          id: responseData 
+        });
+        localStorage.setItem("id", responseData);
         navigate("/dashboard");
       } else {
-          setError("Registration failed. Please try again."); 
+        const errorMessage = await loginRes.text(); // Get error message from response body
+        setError(errorMessage || "Login failed. Please try again."); // Show generic error message if no response body
       }
-
-      /*
-      setUserData({
-        token: loginRes.data.token,
-        user: loginRes.data.user,
-      });
-      localStorage.setItem("auth-token", loginRes.data.token);
-      */
     } catch (err) {
       setLoading(false);
-      err.response.data.msg && setError(err.response.data.msg);
+      console.error("Error logging in:", err);
+      setError("Internal server error. Please try again.");
     }
   }
+  
 
   return (
     <div className="flex h-screen absolute top-0 items-center left-0 right-0">
