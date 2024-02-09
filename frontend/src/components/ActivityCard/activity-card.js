@@ -13,7 +13,7 @@ export default function ActivityCard({ colour, data }) {
       className={`w-64 min-w-64 rounded ${colourVariants[colour]} overflow-hidden shadow-l hover:shadow-xl rounded-3xl mr-20 mb-8 hover:cursor-pointer`}
       onClick={handleNavigate}
     >
-      <img className="w-full" src="/sample.jpeg" alt="" />
+      <img className="w-full" src={data.image} alt="" />
       <div className="px-6 py-4">
         <div className="font-bold text-l mb-2">{data.title}</div>
         <p className="text-gray-700 text-sm">{data.location}</p>

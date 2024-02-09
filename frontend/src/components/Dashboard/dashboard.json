@@ -2,24 +2,28 @@
     "allActivities": [
         {
             "id": "1", 
+            "image": "/Event1Image.jpeg",
             "title": "Volunteer Befriender",
             "location": "5 Beach Road St Andrew's Senior Care - Joy Connect Singapore 190005",
             "organisation": "Befriender Org"
         },
         {
             "id": "2", 
+            "image": "/Event2Image.jpg",
             "title": "Food Drive Campaign",
             "location": "BLK 2022 BUKIT BATOK STREET 23, Singapore 65678921",
             "organisation": "Local Food Bank"
         },
         {
             "id": "3", 
+            "image": "/Event3Image.jpg",
             "title": "Tech Workshop for Kids",
             "location": "10 Ubi Crescent ,07-89 Ubi Techpark, Singapore 408564",
             "organisation": "Techno Robotics"
         },
         {
             "id": "4", 
+            "image": "/Event4Image.jpg",
             "title": "Art Exhibition Fundraiser",
             "location": "132 PAYA LEBAR ROAD, Singapore 409020",
             "organisation": "City Art Gallery"
@@ -28,24 +32,28 @@
     "recommendedActivities": [
         {
             "id": "1", 
+            "image": "/Event1Image.jpeg",
             "title": "Volunteer Befriender",
             "location": "5 Beach Road St Andrew's Senior Care - Joy Connect Singapore 190005",
             "organisation": "Befriender Org"
         },
         {
             "id": "2", 
+            "image": "/Event2Image.jpg",
             "title": "Food Drive Campaign",
             "location": "BLK 2022 BUKIT BATOK STREET 23, Singapore 65678921",
             "organisation": "Local Food Bank"
         },
         {
             "id": "3", 
+            "image": "/Event3Image.jpg",
             "title": "Tech Workshop for Kids",
             "location": "10 Ubi Crescent ,07-89 Ubi Techpark, Singapore 408564",
             "organisation": "Techno Robotics"
         },
         {
             "id": "4", 
+            "image": "/Event4Image.jpg",
             "title": "Art Exhibition Fundraiser",
             "location": "132 PAYA LEBAR ROAD, Singapore 409020",
             "organisation": "City Art Gallery"
