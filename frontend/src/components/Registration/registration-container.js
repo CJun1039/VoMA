@@ -1,4 +1,44 @@
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
 export default function RegistrationContainer() {
+
+
+  const { setUserData } = useContext(UserContext);
+  const [error, setError] = useState("");
+
+
+
+  const handleRegister = async (e) => {
+    try {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = {
+        firstname: formData.get("firstname"),
+        lastname: formData.get("lastname"),
+        email: formData.get("email"),
+        password: formData.get("password"),
+      };
+      const response = await post("/register", data);
+      if (response.ok) {
+        setUserData({
+          token: response.data.token,
+          volunteer: response.data.volunteer,
+          isAdmin: response.data.user.sensitiveInformation.isAdmin,
+        });
+        localStorage.setItem("auth-token", response.data.token);
+        navigate("/dashboard");
+      } else {
+        setError("Registration failed. Please try again."); 
+      }
+    } catch (error) {
+      console.error("Error registering user:", error);
+      setError("Internal server error. Please try again."); 
+    }
+  };
+
+
+
   return (
     <div className="flex h-screen absolute top-0 items-center left-0 right-0">
       <div className="grow"></div>
@@ -14,15 +54,15 @@ export default function RegistrationContainer() {
             <div className="flex gap-x-6">
               <div>
                 <label
-                  htmlFor="first-name"
+                  htmlFor="firstname"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   First name
                 </label>
                 <div>
                   <input
-                    id="first-name"
-                    name="first-name"
+                    id="firstname"
+                    name="firstname"
                     type="text"
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -31,15 +71,15 @@ export default function RegistrationContainer() {
               </div>
               <div>
                 <label
-                  htmlFor="first-name"
+                  htmlFor="firstname"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Last name
                 </label>
                 <div>
                   <input
-                    id="last-name"
-                    name="last-name"
+                    id="lastname"
+                    name="lastname"
                     type="text"
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -106,10 +146,12 @@ export default function RegistrationContainer() {
               </div>
             </div>
 
-            <div>
+                    <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+
               <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-orange-red/80 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-red/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={handleRegister}
               >
                 Sign up
               </button>
@@ -118,12 +160,12 @@ export default function RegistrationContainer() {
 
           <p className="mt-10 mb-5 text-center text-sm text-gray-500">
             Already part of the community?{" "}
-            <a
-              href="#"
+            <Link
               className="font-semibold leading-6 text-orange-red/80 hover:text-orange-red/90"
+              to="/login"
             >
               Sign in here
-            </a>
+            </Link>
           </p>
         </div>
       </div>

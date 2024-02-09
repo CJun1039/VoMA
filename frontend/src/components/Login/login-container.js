@@ -1,4 +1,27 @@
+import { Link } from "react-router-dom";
+
 export default function LoginContainer() {
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const loginUser = { email, password };
+      const loginRes = await post("/login", loginUser);
+      setUserData({
+        token: loginRes.data.token,
+        user: loginRes.data.user,
+      });
+
+      localStorage.setItem("auth-token", loginRes.data.token);
+      navigate("/dashboard");
+    } catch (err) {
+      setLoading(false);
+      err.response.data.msg && setError(err.response.data.msg);
+    }
+  }
+
+
   return (
     <div className="flex h-screen absolute top-0 items-center left-0 right-0">
       <div className="grow"></div>
@@ -63,6 +86,7 @@ export default function LoginContainer() {
               <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-orange-red/80 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-red/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={handleSubmit}
               >
                 Sign in
               </button>
@@ -71,12 +95,12 @@ export default function LoginContainer() {
 
           <p className="mt-10 text-center text-sm text-gray-500">
             New to Big At Heart?{" "}
-            <a
-              href="#"
+            <Link
               className="font-semibold leading-6 text-orange-red/80 hover:text-orange-red/90"
+              to="/register"
             >
               Sign up now
-            </a>
+            </Link>
           </p>
         </div>
       </div>
