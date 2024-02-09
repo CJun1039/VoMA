@@ -9,7 +9,7 @@ export default function AllActivities(props) {
         View all upcoming opportunities
       </div>
       <SearchBar />
-      <div className="flex flex-row flex-wrap justify-between pt-10 pb-10 space-y-4">
+      <div className="flex flex-row flex-wrap justify-between my-10">
         {data.map((activity, index) => (
           <ActivityCard key={index} colour={"#FECCCD"} data={activity} />
         ))}

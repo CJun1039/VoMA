@@ -1,46 +1,54 @@
 {
     "allActivities": [
         {
-            "title": "Community Cleanup Day",
-            "location": "Greenfield Park",
-            "organisation": "Clean Earth Foundation"
+            "id": "1", 
+            "title": "Volunteer Befriender",
+            "location": "5 Beach Road St Andrew's Senior Care - Joy Connect Singapore 190005",
+            "organisation": "Befriender Org"
         },
         {
+            "id": "2", 
             "title": "Food Drive Campaign",
-            "location": "Downtown Plaza",
+            "location": "BLK 2022 BUKIT BATOK STREET 23, Singapore 65678921",
             "organisation": "Local Food Bank"
         },
         {
+            "id": "3", 
             "title": "Tech Workshop for Kids",
-            "location": "Innovation Hub",
-            "organisation": "Tech Education Society"
+            "location": "10 Ubi Crescent ,07-89 Ubi Techpark, Singapore 408564",
+            "organisation": "Techno Robotics"
         },
         {
+            "id": "4", 
             "title": "Art Exhibition Fundraiser",
-            "location": "City Art Gallery",
-            "organisation": "Art for a Cause"
+            "location": "132 PAYA LEBAR ROAD, Singapore 409020",
+            "organisation": "City Art Gallery"
         }
     ],
     "recommendedActivities": [
         {
-            "title": "Community Cleanup Day",
-            "location": "Greenfield Park",
-            "organisation": "Clean Earth Foundation"
+            "id": "1", 
+            "title": "Volunteer Befriender",
+            "location": "5 Beach Road St Andrew's Senior Care - Joy Connect Singapore 190005",
+            "organisation": "Befriender Org"
         },
         {
+            "id": "2", 
             "title": "Food Drive Campaign",
-            "location": "Downtown Plaza",
+            "location": "BLK 2022 BUKIT BATOK STREET 23, Singapore 65678921",
             "organisation": "Local Food Bank"
         },
         {
+            "id": "3", 
             "title": "Tech Workshop for Kids",
-            "location": "Innovation Hub",
-            "organisation": "Tech Education Society"
+            "location": "10 Ubi Crescent ,07-89 Ubi Techpark, Singapore 408564",
+            "organisation": "Techno Robotics"
         },
         {
+            "id": "4", 
             "title": "Art Exhibition Fundraiser",
-            "location": "City Art Gallery",
-            "organisation": "Art for a Cause"
+            "location": "132 PAYA LEBAR ROAD, Singapore 409020",
+            "organisation": "City Art Gallery"
         }
     ]
 }
