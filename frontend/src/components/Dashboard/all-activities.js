@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar/searchBar";
 export default function AllActivities(props) {
   const { data } = props;
   return (
-    <div className="mx-40">
+    <div className="mx-40 mt-10">
       <div className="text-2xl font-semibold mb-5">
         View all upcoming opportunities
       </div>

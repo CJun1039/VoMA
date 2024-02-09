@@ -199,13 +199,9 @@ export default function CreateActivity() {
                   Create new activity
                 </button>
               </div>
-
-              
             </div>
-            
           </div>
         </div>
-        
       </form>
     </>
   );
