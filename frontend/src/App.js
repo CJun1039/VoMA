@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/register" element={<RegistrationPage />}></Route>
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/event" element={<SingleEventPage />} />
+        <Route path="/events/:eventId" element={<SingleEventPage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/particulars" element={<ParticularsForm />} />
       </Routes>
